@@ -23,13 +23,13 @@ var questions = [
         rightAnswer: "Google Chrome",
     }
 ];
-
+//more variables used
 var twoMinutes = 0;
-var time = 0;
+var time = 120;
 var clockRunning = false;
 
 // code will run as soon as page loads
-    window.onload = function() {
+    window.onload = function(){
     $("#start").on("click", start);
     $("#done").on("click", done);
   };
@@ -39,16 +39,23 @@ var clockRunning = false;
 
 function count(){
 
-    // DONE: increment time by 1, remember we cant use "this" here.
-    time++;
+    // decrement time by 1, 
+    time--;
     console.log(time);
     var converted = timeConverter(time);
     console.log(converted);
-    // DONE: Use the variable we just created to show the converted time in the "display" div.
+    // Use the variable we just created to show the converted time in the "timer" div
     $("#timer").text(converted);
   }
-  
+  //Get values of selected radio-buttons
+  $('.qb:checked').val();
+  $('.singer:checked').val();
+  $('.year:checked').val();
+  $('.player:checked').val();
+  $('.browser:checked').val();
+
 function start(){
+ //   event.preventDefault();
     if (!clockRunning) {
    var twoMinutes = setInterval(count, 1000);
    console.log(twoMinutes);
@@ -75,4 +82,7 @@ function timeConverter(t) {
     return minutes + ":" + seconds;
   }
   
-  
+  // crear una funcion que colecte las respuestas correctas, y que corra al momento de dar click en el "done" o que el reloj se termine
+  function rightAnswer(){
+
+  }
